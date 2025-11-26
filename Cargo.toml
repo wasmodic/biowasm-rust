@@ -1,0 +1,27 @@
+[package]
+name = "biowasm-rust"
+version = "0.1.0"
+authors = ["Andrew Lonsdale <andrew.lonsdale@lonsbio.com.au>"]
+
+[dependencies]
+bio = "*"
+argparse = "*"
+log = "*"
+log4rs = "*"
+
+
+[lib]
+crate-type = ["cdylib","lib"]
+path = "src/main.rs"
+link-args = ["-s", "ZLIB=1"]
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = [
+  'Document',
+  'Element',
+  'HtmlElement',
+  'Node',
+  'Window',
+  'console'
+]
