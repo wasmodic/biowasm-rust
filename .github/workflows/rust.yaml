@@ -27,6 +27,8 @@ jobs:
       run: ls -R 
     - name: Build
       run: cargo build --verbose --target wasm32-unknown-emscripten --release
+    - name: Verify ls build 
+      run: ls -R ./target/wasm32-unknown-emscripten/release/
       
     - name: Gather target outputs 
       run: mkdir biowasm && cp ./target/wasm32-unknown-emscripten/release/biowasm-rust.js biowasm && cp ./target/wasm32-unknown-emscripten/release/biowasm-rust.wasm biowasm && cp ./target/wasm32-unknown-emscripten/release/deps/biowasm-rust.data biowasm
