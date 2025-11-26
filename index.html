@@ -9,14 +9,35 @@ const CLI = await new Aioli([{tool: "biowasmrust",
 //biowasmrust help
 let output_help = await CLI.exec("biowasmrust --help");
 
+
+    
+// Create mock fasta file
+await CLI.mount({
+	name: "test.fasta",
+    data: ">test1\nTTGGAGGATTTTGGAGAATCCCCTTAGGGGGAAATGTTTAAAAGTGCAAAGTGAATAGTAGAAGCCCCTCTCCTCGTCACTAGGGGTACATTTGCCGTTTTCTTATCAACAGCCTCTCAAGTACAAGCATCTGGGACAAGAACTAGAA\nAACTTCTTTTGCCCAGTCCTAATTTTTCTCCTCTTTTCCACGGGAATTGAGCCCAATAACACTTCATAATAACTATCTTAAATACTAAACTCATCTCAGCATTTTCTTCCTGGGGAATCTGACGTGATAGCCACAAATAGCATGTAGACGTGTTTTGTTGGCTTAGTTTTTGCTCTCATTGAGAGAAATAATATTGCTTTGCCATAGTAATTGAGTTTAACTACTGACACTTTCCATAGTCTAAAATTAATTGCTTTTAAGAAGAAATATTAGTTGAGGTTTCCAACGTTAGACCC"
+});
+
+
+    
+//biowasmrust help
+let output_help = await CLI.exec("biowasmrust test.fasta");
+
+
+    
 document.getElementById("output_help").innerHTML = output_help;
+document.getElementById("output_fasta").innerHTML = output_fasta;
 
 </script>
     
 
 <h1>Rust to  WebAssembly and Biowasm Example</h1>
 
-Using a Rust based tool, we compile to WebAssembly in a format that is compativle with Biowasm as an Aioli object. This allows mix and matching of established Biowasm tools with Rust tools. 
+<p>Using a Rust based tool, we compile to WebAssembly in a format that is compativle with Biowasm as an Aioli object. 
+</p>
+
+<P>
+This allows mix and matching of established bioinformatics tools in Biowasm with custom Rust tools.     
+</P>
 
 The code powering the example below is as follows: 
 
@@ -40,10 +61,10 @@ The code powering the example below is as follows:
      &lt;h4&gt;Output of  &lt;code&gt;biowasmrust --help &lt;/code&gt;: &lt;/h4&gt;
      &lt;pre id="output_help">Loading... &lt;/pre&gt;
 
-
-
 </pre>
 
 <h4>Output of <code>biowasmrust --help</code>:</h4>
 <pre id="output_help">Loading...</pre>
 
+<h4>Output of <code>biowasmrust test.fasta</code>:</h4>
+<pre id="output_fasta">Loading...</pre>
