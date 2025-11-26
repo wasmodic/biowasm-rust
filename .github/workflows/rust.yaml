@@ -39,16 +39,15 @@ jobs:
       run: mkdir biowasm && cp ./target/wasm32-unknown-emscripten/release/biowasm_rust.js biowasm && cp ./target/wasm32-unknown-emscripten/release/biowasm_rust.wasm biowasm && cp ./target/wasm32-unknown-emscripten/release/deps/biowasm_rust.data biowasm
     - name: Verify  biowasm
       run: ls -Rl biowasm
-
     - name: Setup Pages
-        uses: actions/configure-pages@v4
+      uses: actions/configure-pages@v4
     - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
+      uses: actions/upload-pages-artifact@v3
+      with:
           # Upload entire repository
           path: 'biowasm/'
     - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      id: deployment
+      uses: actions/deploy-pages@v4
 
 
