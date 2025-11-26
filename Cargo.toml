@@ -1,5 +1,5 @@
 [package]
-name = "biowasm-rust"
+name = "biowasmrust"
 version = "0.1.0"
 authors = ["Andrew Lonsdale <andrew.lonsdale@lonsbio.com.au>"]
 
