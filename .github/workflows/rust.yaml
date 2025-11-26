@@ -37,6 +37,8 @@ jobs:
       
     - name: Gather target outputs 
       run: mkdir biowasm && cp ./target/wasm32-unknown-emscripten/release/biowasmrust.js biowasm && cp ./target/wasm32-unknown-emscripten/release/biowasmrust.wasm biowasm && cp ./target/wasm32-unknown-emscripten/release/deps/biowasmrust.data biowasm
+    - name: Copy index to  biowasm
+      run: cp index.html biowasm
     - name: Verify  biowasm
       run: ls -Rl biowasm
     - name: Setup Pages
